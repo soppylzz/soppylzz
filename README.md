@@ -1,4 +1,7 @@
 <p align="center">
-  <!-- Trophy 增强展示 -->
-  <img src="https://github-profile-trophy.vercel.app/?username=soppylzz&row=1&column=7" alt="trophy"/>
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://github-profile-trophy.vercel.app/?username=soppylzz&row=1&column=7&theme=darkhub">
+    <source media="(prefers-color-scheme: light)" srcset="https://github-profile-trophy.vercel.app/?username=soppylzz&row=1&column=7&theme=flat">
+    <img alt="GitHub Trophies" src="https://github-profile-trophy.vercel.app/?username=soppylzz&row=1&column=7">
+  </picture>
 </p>
