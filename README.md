@@ -1,7 +1,20 @@
-<p align="center">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://github-profile-trophy.vercel.app/?username=soppylzz&row=1&column=7&theme=darkhub">
-    <source media="(prefers-color-scheme: light)" srcset="https://github-profile-trophy.vercel.app/?username=soppylzz&row=1&column=7&theme=flat">
-    <img alt="GitHub Trophies" src="https://github-profile-trophy.vercel.app/?username=soppylzz&row=1&column=7">
-  </picture>
-</p>
+<div align="center">
+
+# Hi, I'm soppylzz 👋
+
+🚀 Passionate about building and exploring technology
+
+![My Skills](https://skillicons.dev/icons?i=js,python,cpp,html,css,git)
+
+![Followers](https://img.shields.io/github/followers/soppylzz?style=flat-square)
+![Stars](https://img.shields.io/github/stars/soppylzz?affiliations=OWNER%2CCOLLABORATOR\&style=flat-square)
+![Profile Views](https://komarev.com/ghpvc/?username=soppylzz\&style=flat-square)
+
+### Interests
+
+<div>
+  <span>🛰️ Remote Sensing</span>&nbsp;&nbsp;&nbsp;&nbsp;<span>🧰 CLI Tools</span>
+  <div>🌐 Web Development</div>
+</div>
+
+</div>
