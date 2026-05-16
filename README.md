@@ -4,7 +4,7 @@
 
 🚀 Passionate about building and exploring technology
 
-![My Skills](https://skillicons.dev/icons?i=js,python,cpp,html,css,git)
+![My Skills](https://skillicons.dev/icons?i=js,python,html,css,git)
 
 ![Followers](https://img.shields.io/github/followers/soppylzz?style=flat-square)
 ![Stars](https://img.shields.io/github/stars/soppylzz?affiliations=OWNER%2CCOLLABORATOR\&style=flat-square)
