@@ -1,12 +1,35 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="490" height="260" viewBox="0 0 490 260" role="img" aria-label="soppylzz GitHub Stats snapshot">
-<title>soppylzz GitHub Stats snapshot</title>
-<style>text { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; } .title { fill: #58a6ff; font-size: 18px; font-weight: 600; } .muted { fill: #c9d1d9; font-size: 14px; } .value { fill: #f0f6fc; font-size: 14px; font-weight: 600; }</style>
-<rect x="0.5" y="0.5" width="489" height="259" rx="10" fill="#0d1117" stroke="#30363d"/>
-<text x="24" y="36" class="title">soppylzz’s GitHub Stats</text>
-<text x="24" y="72" class="muted">Total stars</text><text x="445" y="72" text-anchor="end" class="value">6</text>
-<text x="24" y="101" class="muted">Total commits</text><text x="445" y="101" text-anchor="end" class="value">377</text>
-<text x="24" y="130" class="muted">Total PRs</text><text x="445" y="130" text-anchor="end" class="value">46</text>
-<text x="24" y="159" class="muted">Total issues</text><text x="445" y="159" text-anchor="end" class="value">0</text>
-<text x="24" y="188" class="muted">Contributed to (past year)</text><text x="445" y="188" text-anchor="end" class="value">15</text>
-<text x="24" y="237" class="muted">GitHub snapshot · updated 2026-11-09 UTC</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="284" viewBox="0 0 720 284" role="img" aria-labelledby="title desc">
+<title id="title">soppylzz’s GitHub Stats</title>
+<desc id="desc">Total stars: 6; Total commits: 377; Total PRs: 46; Total issues: 0; Contributed to (past year): 15</desc>
+<style>text { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }</style>
+<rect x="0.5" y="0.5" width="719" height="283" rx="16" fill="#0d1117" stroke="#30363d"/>
+<text x="24" y="38" fill="#f0f6fc" font-size="18" font-weight="600">GitHub activity</text>
+<text x="696" y="37" text-anchor="end" fill="#9da7b3" font-size="13">@soppylzz</text>
+<rect x="24" y="60" width="216" height="124" rx="12" fill="#161b22"/>
+<rect x="40" y="74" width="28" height="28" rx="8" fill="#342330"/>
+<g transform="translate(46 80)" fill="none" stroke="#e5a6ba" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m8 1 2.2 4.5 5 .7-3.6 3.5.8 5L8 12.3l-4.4 2.4.8-5L.8 6.2l5-.7Z"/></g>
+<text x="40" y="142" fill="#f0f6fc" font-size="34" font-weight="650">6</text>
+<text x="40" y="165" fill="#9da7b3" font-size="12">Total stars</text>
+<rect x="252" y="60" width="216" height="124" rx="12" fill="#161b22"/>
+<rect x="268" y="74" width="28" height="28" rx="8" fill="#342330"/>
+<g transform="translate(274 80)" fill="none" stroke="#e5a6ba" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="8" r="3"/><path d="M0 8h5m6 0h5"/></g>
+<text x="268" y="142" fill="#f0f6fc" font-size="34" font-weight="650">377</text>
+<text x="268" y="165" fill="#9da7b3" font-size="12">Total commits</text>
+<rect x="480" y="60" width="216" height="124" rx="12" fill="#161b22"/>
+<rect x="496" y="74" width="28" height="28" rx="8" fill="#342330"/>
+<g transform="translate(502 80)" fill="none" stroke="#e5a6ba" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="4" cy="3" r="2"/><circle cx="4" cy="13" r="2"/><circle cx="13" cy="13" r="2"/><path d="M4 5v6m9 0V7a4 4 0 0 0-4-4H8m2-2L8 3l2 2"/></g>
+<text x="496" y="142" fill="#f0f6fc" font-size="34" font-weight="650">46</text>
+<text x="496" y="165" fill="#9da7b3" font-size="12">Total PRs</text>
+<rect x="24" y="202" width="32" height="32" rx="10" fill="#342330"/>
+<g transform="translate(32 210)" fill="none" stroke="#e5a6ba" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="8" r="6.5"/><path d="M8 4v4m0 3v.1"/></g>
+<text x="69" y="215" fill="#f0f6fc" font-size="18" font-weight="600">0</text>
+<text x="69" y="234" fill="#9da7b3" font-size="12">Total issues</text>
+<rect x="366" y="202" width="32" height="32" rx="10" fill="#342330"/>
+<g transform="translate(374 210)" fill="none" stroke="#e5a6ba" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M1 2h6l1 2h7v10H1Z"/></g>
+<text x="411" y="215" fill="#f0f6fc" font-size="18" font-weight="600">15</text>
+<text x="411" y="234" fill="#9da7b3" font-size="12">Contributed to (past year)</text>
+<path d="M24 251H696" stroke="#30363d"/>
+<circle cx="28" cy="268" r="3" fill="#e5a6ba"/>
+<text x="40" y="272" fill="#9da7b3" font-size="11">GitHub snapshot</text>
+<text x="696" y="272" text-anchor="end" fill="#9da7b3" font-size="11">Updated 2026-11-09 UTC</text>
 </svg>

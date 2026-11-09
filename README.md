@@ -54,7 +54,7 @@
 <a href="https://github.com/soppylzz">
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="assets/stats-dark.svg" />
-    <img src="assets/stats.svg" alt="soppylzz GitHub stats snapshot" width="490" />
+    <img src="assets/stats.svg" alt="soppylzz GitHub stats snapshot" width="720" />
   </picture>
 </a>
 
