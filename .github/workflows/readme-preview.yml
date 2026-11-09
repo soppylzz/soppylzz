@@ -1,0 +1,47 @@
+name: README preview
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  preview:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate repository images
+        run: |
+          python3 - <<'PY'
+          import re
+          import xml.etree.ElementTree as ET
+          from pathlib import Path
+          readme = Path('README.md').read_text()
+          images = re.findall(r'<img[^>]+src="([^"]+)"', readme)
+          images += re.findall(r'!\[[^\]]*\]\(([^)]+)\)', readme)
+          assert images, 'README must contain images'
+          for source in images:
+              assert not source.startswith(('http:', 'https:')), f'External image: {source}'
+              path = Path(source)
+              assert path.is_file(), f'Missing image: {source}'
+              if path.suffix == '.svg':
+                  ET.parse(path)
+          print(f'Validated {len(images)} repository images')
+          PY
+      - name: Add preview links
+        env:
+          REPOSITORY: ${{ github.repository }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
+          SERVER_URL: ${{ github.server_url }}
+        run: |
+          {
+            echo '### README preview'
+            echo
+            echo "[Open rendered README](${SERVER_URL}/${REPOSITORY}/blob/${HEAD_SHA}/README.md)"
+            echo
+            echo "[Open stats card](${SERVER_URL}/${REPOSITORY}/blob/${HEAD_SHA}/assets/stats.svg)"
+            echo
+            echo 'Review the README in light and dark GitHub themes, then check all four project links.'
+          } >> "$GITHUB_STEP_SUMMARY"

@@ -1,0 +1,48 @@
+name: Update profile stats
+
+on:
+  schedule:
+    - cron: '17 3 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: profile-stats
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - name: Generate stats snapshot
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python3 scripts/update_stats.py
+      - name: Propose stats update
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          if git diff --quiet -- assets/stats.svg; then
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git switch -c chore/profile-stats
+          git add assets/stats.svg
+          git commit -m 'chore: refresh public GitHub stats'
+          if git ls-remote --exit-code --heads origin chore/profile-stats > /dev/null; then
+            git fetch origin refs/heads/chore/profile-stats:refs/remotes/origin/chore/profile-stats
+          fi
+          git push --force-with-lease origin HEAD:chore/profile-stats
+          if [ -z "$(gh pr list --head chore/profile-stats --base main --state open --json number --jq '.[].number')" ]; then
+            gh pr create --base main --head chore/profile-stats \
+              --title 'chore: refresh public GitHub stats' \
+              --body 'Refresh the committed public-data snapshot. [Preview README](https://github.com/soppylzz/soppylzz/blob/chore/profile-stats/README.md). Check light and dark themes before merging. GitHub does not automatically trigger PR checks for PRs created with GITHUB_TOKEN; use the README preview workflow manually on this branch if needed.'
+          fi
