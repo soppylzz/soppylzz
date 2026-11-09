@@ -1,34 +1,63 @@
 <div align="center">
 
-<img src="assets/banner.svg" width="720" alt="soppylzz pixel art banner" />
-
-### Hi, I'm soppy 👋
-
-Frontend · AI agents · Remote sensing
-
-TypeScript / Go / Python / Shell · Vue / React
-
-Building interfaces, exploring frameworks, and making themes.
-
-</div>
-
-## Projects
-
-| Project | About |
-| :--- | :--- |
-| [**soppy-vue**](https://github.com/soppylzz/soppy-vue) | A minimal implementation of Vue 3.4. |
-| [**soppy-slidev**](https://github.com/soppylzz/soppy-slidev) | Themes for Slidev presentations. |
-| [**soppy-react**](https://github.com/soppylzz/soppy-react) | A React 18 replica for learning. |
-| [**yuzur1ha-org/react**](https://github.com/yuzur1ha-org/react) | UI & SSG framework for yuzur1ha. |
-
-[Explore more projects →](https://github.com/soppylzz?tab=repositories)
-
-## GitHub Stats
-
-[![GitHub stats: public repositories, followers, and stars on owned non-fork repositories](assets/stats.svg)](https://github.com/soppylzz?tab=repositories)
-
-<sub>A snapshot of public GitHub data. Updates are proposed daily; the last successful snapshot stays visible until merged.</sub>
+<img src="assets/banner.svg" width="720" alt="soppylzz pixel banner" />
 
 ---
 
-<div align="center"><sub>made with ❤️ and pixels</sub></div>
+<h3>
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://readme-typing-svg.demolab.com/?font=JetBrains+Mono&size=20&pause=1000&color=E5A6BA&center=true&vCenter=true&width=600&height=40&lines=Stack+%26+(+Vue+%7C+React+%7C+Typescript+);Theme+%26+(+Gitea+%7C+Slidev+%7C+Vitepress+);Developer+%26+(+AI+Agent+%7C+Frontend+%7C+Backend+);Research+%26+Remote+sensing" />
+  <img src="https://readme-typing-svg.demolab.com/?font=JetBrains+Mono&size=20&pause=1000&color=B2597E&center=true&vCenter=true&width=600&height=40&lines=Stack+%26+(+Vue+%7C+React+%7C+Typescript+);Theme+%26+(+Gitea+%7C+Slidev+%7C+Vitepress+);Developer+%26+(+AI+Agent+%7C+Frontend+%7C+Backend+);Research+%26+Remote+sensing" alt="Stack &amp; ( Vue | React | Typescript ) · Theme &amp; ( Gitea | Slidev | Vitepress ) · Developer &amp; ( AI Agent | Frontend | Backend ) · Research &amp; Remote sensing" />
+</picture>
+</h3>
+
+<img src="https://skillicons.dev/icons?i=ts,go,py,bash,vue,react&perline=6" alt="TypeScript, Golang, Python, Zsh, Vue, React" />
+
+<h3><picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://readme-typing-svg.demolab.com/?font=JetBrains+Mono&size=20&pause=1000&color=E5A6BA&center=true&vCenter=true&width=400&height=40&lines=Projects;Typescript+%26+(+Vue+%7C+Slidev+)" />
+  <img src="https://readme-typing-svg.demolab.com/?font=JetBrains+Mono&size=20&pause=1000&color=B2597E&center=true&vCenter=true&width=400&height=40&lines=Projects;Typescript+%26+(+Vue+%7C+Slidev+)" alt="Projects · Typescript &amp; ( Vue | Slidev )" />
+</picture></h3>
+
+<a href="https://github.com/soppylzz/soppy-vue">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="assets/projects/soppy-vue-dark.svg" />
+    <img src="assets/projects/soppy-vue.svg" alt="soppylzz/soppy-vue project card" width="350" />
+  </picture>
+</a>
+<a href="https://github.com/soppylzz/soppy-slidev">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="assets/projects/soppy-slidev-dark.svg" />
+    <img src="assets/projects/soppy-slidev.svg" alt="soppylzz/soppy-slidev project card" width="350" />
+  </picture>
+</a>
+<br />
+<a href="https://github.com/soppylzz/soppy-react">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="assets/projects/soppy-react-dark.svg" />
+    <img src="assets/projects/soppy-react.svg" alt="soppylzz/soppy-react project card" width="350" />
+  </picture>
+</a>
+<a href="https://github.com/yuzur1ha-org/react">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="assets/projects/react-dark.svg" />
+    <img src="assets/projects/react.svg" alt="yuzur1ha-org/react project card" width="350" />
+  </picture>
+</a>
+
+<sub><a href="https://github.com/soppylzz?tab=repositories">more projects →</a></sub>
+
+<h3><picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://readme-typing-svg.demolab.com/?font=JetBrains+Mono&size=20&pause=1000&color=E5A6BA&center=true&vCenter=true&width=200&height=40&lines=Misc" />
+  <img src="https://readme-typing-svg.demolab.com/?font=JetBrains+Mono&size=20&pause=1000&color=B2597E&center=true&vCenter=true&width=200&height=40&lines=Misc" alt="Misc" />
+</picture></h3>
+
+<a href="https://github.com/soppylzz">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="assets/stats-dark.svg" />
+    <img src="assets/stats.svg" alt="soppylzz GitHub stats snapshot" width="490" />
+  </picture>
+</a>
+
+<sub>made with ❤️ and pixels</sub>
+
+</div>

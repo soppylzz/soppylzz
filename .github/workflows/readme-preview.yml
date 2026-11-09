@@ -20,10 +20,11 @@ jobs:
           from pathlib import Path
           readme = Path('README.md').read_text()
           images = re.findall(r'<img[^>]+src="([^"]+)"', readme)
-          images += re.findall(r'!\[[^\]]*\]\(([^)]+)\)', readme)
+          images += re.findall(r'<source[^>]+srcset="([^"]+)"', readme)
           assert images, 'README must contain images'
           for source in images:
-              assert not source.startswith(('http:', 'https:')), f'External image: {source}'
+              if source.startswith(('http:', 'https:')):
+                  continue
               path = Path(source)
               assert path.is_file(), f'Missing image: {source}'
               if path.suffix == '.svg':
