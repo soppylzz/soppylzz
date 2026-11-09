@@ -1,20 +1,13 @@
-"""Generate profile cards from GitHub data; no live card service is needed."""
+"""Refresh the existing stats snapshot from GitHub data."""
 
 import json
 import subprocess
-import textwrap
 import time
 from datetime import datetime, timezone
 from html import escape
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-PROJECTS = ['soppylzz/soppy-vue', 'soppylzz/soppy-slidev',
-            'soppylzz/soppy-react', 'yuzur1ha-org/react']
-THEMES = {
-    'light': ('#ffffff', '#d0d7de', '#1f6feb', '#57606a', '#1f2328'),
-    'dark': ('#0d1117', '#30363d', '#58a6ff', '#c9d1d9', '#f0f6fc'),
-}
 
 
 def github(path, *args):
@@ -25,31 +18,6 @@ def github(path, *args):
             if attempt == 2:
                 raise
             time.sleep(2 ** attempt)
-
-
-def svg(width, height, title, body, theme):
-    bg, border, accent, muted, foreground = THEMES[theme]
-    return f'''<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" viewBox="0 0 {width} {height}" role="img" aria-label="{escape(title, quote=True)}">
-<title>{escape(title)}</title>
-<style>text {{ font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }} .title {{ fill: {accent}; font-size: 18px; font-weight: 600; }} .muted {{ fill: {muted}; font-size: 14px; }} .value {{ fill: {foreground}; font-size: 14px; font-weight: 600; }}</style>
-<rect x="0.5" y="0.5" width="{width-1}" height="{height-1}" rx="10" fill="{bg}" stroke="{border}"/>
-{body}
-</svg>
-'''
-
-
-def project_card(repo, theme):
-    name = repo['name'] if repo['owner']['login'] == 'soppylzz' else repo['full_name']
-    # Avoid emoji/font differences in the repository's decorative description prefix.
-    lines = textwrap.wrap((repo['description'] or '').lstrip('😎🏊🤠🐦\u200d🔥 \ufe0f'), width=48)[:2]
-    body = '<path d="M25 23h13v16H25z M29 23v16 M25 35h13" fill="none" stroke="' + THEMES[theme][3] + '" stroke-width="1.5"/>\n'
-    body += f'<text x="49" y="36" class="title">{escape(name)}</text>\n'
-    for index, line in enumerate(lines):
-        body += f'<text x="24" y="{69+index*22}" class="muted">{escape(line)}</text>\n'
-    language = repo['language'] or ''
-    body += f'<text x="24" y="137" class="muted">{escape(language)}</text>\n'
-    body += f'<text x="235" y="137" class="muted">Stars {repo["stargazers_count"]} · Forks {repo["forks_count"]}</text>'
-    return svg(420, 164, f'{repo["full_name"]}: {repo["description"] or ""}', body, theme)
 
 
 def stats_card(metrics, updated, theme):
@@ -112,7 +80,6 @@ def main():
         if len(batch) < 100:
             break
         page += 1
-    projects = [github(f'repos/{name}') for name in PROJECTS]
     now = datetime.now(timezone.utc)
     query = '''query { user(login: "soppylzz") {
       createdAt
@@ -144,11 +111,9 @@ def main():
         ('Contributed to (past year)', activity['repositoriesContributedTo']['totalCount']),
     ]
     outputs = {}
-    for theme in THEMES:
+    for theme in ['light', 'dark']:
         suffix = '-dark' if theme == 'dark' else ''
         outputs[f'assets/stats{suffix}.svg'] = stats_card(metrics, now, theme)
-        for repo in projects:
-            outputs[f'assets/projects/{repo["name"]}{suffix}.svg'] = project_card(repo, theme)
     # Keep the previous cards intact if any GitHub request fails.
     for filename, content in outputs.items():
         target = ROOT / filename

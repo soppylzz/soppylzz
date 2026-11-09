@@ -17,19 +17,55 @@ jobs:
           python3 - <<'PY'
           import re
           import xml.etree.ElementTree as ET
+          from html import unescape
           from pathlib import Path
+          from urllib.parse import parse_qs, urlsplit
           readme = Path('README.md').read_text()
           images = re.findall(r'<img[^>]+src="([^"]+)"', readme)
           images += re.findall(r'<source[^>]+srcset="([^"]+)"', readme)
           assert images, 'README must contain images'
           for source in images:
+              source = unescape(source)
+              if 'readme-typing-svg.demolab.com' in source:
+                  query = parse_qs(urlsplit(source).query)
+                  for key, expected in [('width', '360'), ('height', '40'), ('size', '18')]:
+                      assert query[key] == [expected], f'Inconsistent heading {key}'
               if source.startswith(('http:', 'https:')):
                   continue
               path = Path(source)
               assert path.is_file(), f'Missing image: {source}'
               if path.suffix == '.svg':
                   ET.parse(path)
-          print(f'Validated {len(images)} repository images')
+          print('Validated local SVGs and consistent typing heading dimensions')
+          PY
+      - name: Check external project cards
+        run: |
+          python3 - <<'PY'
+          import concurrent.futures
+          import re
+          import time
+          import urllib.request
+          import xml.etree.ElementTree as ET
+          from html import unescape
+          from pathlib import Path
+          urls = set(unescape(url) for url in re.findall(r'(?:src|srcset)="([^"]+)"', Path('README.md').read_text()) if '/api/pin/' in url)
+          assert len(urls) == 8, 'Expected four project cards in light and dark themes'
+          def check(url):
+              for attempt in range(3):
+                  try:
+                      with urllib.request.urlopen(url, timeout=20) as response:
+                          root = ET.fromstring(response.read())
+                      assert root.tag.endswith('svg'), 'Expected SVG card'
+                      text = ' '.join(root.itertext()).lower()
+                      assert not any(error in text for error in ['something went wrong', 'rate limit exceeded', 'could not resolve', 'error fetching']), 'Provider returned an error card'
+                      return
+                  except Exception:
+                      if attempt == 2:
+                          raise
+                      time.sleep(2 ** attempt)
+          with concurrent.futures.ThreadPoolExecutor(max_workers=4) as pool:
+              list(pool.map(check, urls))
+          print('All eight external project card variants loaded successfully')
           PY
       - name: Add preview links
         env:
